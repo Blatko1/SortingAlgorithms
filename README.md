@@ -6,7 +6,7 @@ If you see some bad code feel free to **Fork** or create a **New Issue**.
 
 ## Sorting Algorithms in the Project:
 
-- QuickSort 
+- QuickSort - a great resources for understanding this algorithm are [VisuAlgo](https://visualgo.net/en/sorting) for visualizing algorithms and a book [C Programming: A Modern Approach](http://knking.com/books/c/)
 
 ### Algorithms that will be added:
 
