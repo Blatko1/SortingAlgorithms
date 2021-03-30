@@ -27,25 +27,32 @@ int main(void){
 }
 
 // Main algorithm function
+// The low argument takes the
 void quicksort(int list[], int low, int high){
 
     // Checking if the function should end.
     if(low >= high) return;
 
-    // Starting a sort between given values (borders).
+    // Starting a sort between given values (borders) and returning the position of the sorted number.
     int middle = sort(list, low, high);
+
     // These lines are commented out because they are used for debugging.
     //printf("Low: %i, High: %i, Middle: %i", low, high, middle);
 
-    // Using recursion.
+    // Using recursion to sort the left side of the sorted number position.
     quicksort(list, low, middle-1);
+
+    // Using recursion to sort the right side of the sorted number position.
     quicksort(list, middle, high);
 }
 
+// Algorithm for sorting numbers between given values
 int sort(int list[], int low, int high){
+    // Findng the value of lowest value.
     int a = list[low];
     int cur = high;
 
+    // Loop trough list, sort the value a to its position and return the position.
     for(int i = low+1; i < high; i++){
         if(a<list[i]){
             if(cur == high){
@@ -70,6 +77,7 @@ int sort(int list[], int low, int high){
     return cur;
 }
 
+// Function for swaping two elements in the list.
 void swap(int list[], int a, int b){
     int c = list[a];
     list[a] = list[b];
