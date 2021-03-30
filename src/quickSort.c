@@ -1,20 +1,34 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 // Defining the lenght of the input list.
-#define N 15
+#define N 100000
 
 // Declaring functions.
+
 void quicksort(int list[], int low, int high);
 int sort(int list[], int low, int high);
 void swap(int list[], int a, int b);
+void generateRandomList(int list[], int lenght);
 
 // Declaring & initializing step/loop counter.
 int steps = 0;
 
 int main(void){
 
+    time_t t;
+
+    srand((unsigned) time(&t));
     // Initializing the randomized list and starting the algorithm.
-    int sort[] = {3,44,38,5,47,15,36,26,27,2,46,4,19,50,48};
+    int sort[N];
+    generateRandomList(sort,N);
+
+    printf("\nRandom list before sorting:\n");
+    for(int i = 0; i < N; i++){
+        printf("%i ",sort[i]);
+    }
+
     quicksort(sort, 0, N);
 
     // Printing the results.
@@ -26,8 +40,7 @@ int main(void){
     return 0;
 }
 
-// Main algorithm function
-// The low argument takes the
+// Main algorithm function.
 void quicksort(int list[], int low, int high){
 
     // Checking if the function should end.
@@ -82,4 +95,10 @@ void swap(int list[], int a, int b){
     int c = list[a];
     list[a] = list[b];
     list[b] = c;
+}
+
+void generateRandomList(int list[], int lenght){
+    for(int i = 0; i < lenght; i++){
+        list[i] = rand() % lenght + 1;
+    }
 }
