@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define LENGHT 100000
+#define LENGHT 10000
 
 void bubbleSort(int list[], int lenght);
 void swap(int list[], int posA, int posB);
@@ -15,21 +15,20 @@ int main(void){
     time_t t;
 
     srand((unsigned) time(&t));
-
     int list[LENGHT];
     generateRandomList(list, LENGHT);
 
     printf("\nRandom list before sorting:\n");
-    /*for(int i = 0; i < N; i++){
-        printf("%i ",sort[i]);
+    /*for(int i = 0; i < LENGHT; i++){
+        printf("%i ",list[i]);
     }*/
 
     bubbleSort(list, LENGHT);
 
     printf("\nFINAL:\n");
-    for(int i = 0; i < LENGHT; i++){
+    /*for(int i = 0; i < LENGHT; i++){
         printf("%i ", list[i]);
-    }
+    }*/
     printf("\nSteps: %i", steps);
 
     return 0;
@@ -41,7 +40,8 @@ void bubbleSort(int list[], int lenght){
         for(int n = 0; n < i-1; n++){
             a = list[n];
             if(a > list[n+1]){
-                swap(list, n, n+1);
+                list[n] = list[n+1];
+                list[n+1] = a;
             }
             steps++;      
         }
