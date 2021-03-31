@@ -1,15 +1,29 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
-#define LENGHT 15
+#define LENGHT 100000
 
 void bubbleSort(int list[], int lenght);
 void swap(int list[], int posA, int posB);
+void generateRandomList(int list[], int lenght);
 
 int steps = 0;
 
 int main(void){
 
-    int list[] = {3,44,38,5,47,15,36,26,27,2,46,4,19,50,48};
+    time_t t;
+
+    srand((unsigned) time(&t));
+
+    int list[LENGHT];
+    generateRandomList(list, LENGHT);
+
+    printf("\nRandom list before sorting:\n");
+    /*for(int i = 0; i < N; i++){
+        printf("%i ",sort[i]);
+    }*/
+
     bubbleSort(list, LENGHT);
 
     printf("\nFINAL:\n");
@@ -40,4 +54,8 @@ void swap(int list[], int posA, int posB){
     list[posB] = temp;
 }
 
-
+void generateRandomList(int list[], int lenght){
+    for(int i = 0; i < lenght; i++){
+        list[i] = rand() % lenght + 1;
+    }
+}

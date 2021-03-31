@@ -25,17 +25,17 @@ int main(void){
     generateRandomList(sort,N);
 
     printf("\nRandom list before sorting:\n");
-    for(int i = 0; i < N; i++){
+    /*for(int i = 0; i < N; i++){
         printf("%i ",sort[i]);
-    }
+    }*/
 
     quicksort(sort, 0, N);
 
     // Printing the results.
     printf("\nSorted List Result:\n");
-    for(int i = 0; i < N; i++){
+    /*for(int i = 0; i < N; i++){
         printf("%i ",sort[i]);
-    }
+    }*/
     printf("\nSteps: %i", steps);
     return 0;
 }
